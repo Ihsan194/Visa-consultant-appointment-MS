@@ -10,7 +10,7 @@ import AddAppointment from "./pages/AddAppointment";
 
 import PrivateRoute from "./components/privateRoute";
 import PublicRoute from "./components/publicRoute";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/protectedRoute";
 
 export default function App() {
   return (
