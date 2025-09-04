@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../context/authContext";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 
 export default function LandingPage() {

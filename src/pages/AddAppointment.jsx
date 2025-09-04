@@ -12,7 +12,7 @@ import {
   DatePicker,
   message,
 } from "antd";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import dayjs from "dayjs";
 import "../assets/theme.css"
 

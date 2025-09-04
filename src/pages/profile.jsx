@@ -8,7 +8,7 @@ import { DB_Collections } from "../lib/constants";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "../assets/theme.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 export default function Profile() {
   const { currentUser, userData, setUserData } = useAuth();

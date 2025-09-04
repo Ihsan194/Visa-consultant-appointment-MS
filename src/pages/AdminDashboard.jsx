@@ -24,7 +24,7 @@ import {
   Form,
 } from "antd";
 import dayjs from "dayjs";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import "../assets/theme.css";
 
 const { Option } = Select;

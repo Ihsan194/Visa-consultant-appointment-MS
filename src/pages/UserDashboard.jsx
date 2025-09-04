@@ -4,7 +4,7 @@ import { collection, query, where, onSnapshot, orderBy } from "firebase/firestor
 import { db } from "../lib/firebase";
 import { useAuth } from "../context/authContext";
 import dayjs from "dayjs";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import { CheckCircleOutlined, CloseCircleOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import "../assets/theme.css";
 
