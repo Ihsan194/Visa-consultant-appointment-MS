@@ -7,12 +7,7 @@ export default function PrivateRoute({ children }) {
 
   if (loading) {
     return (
-      <div style={{ 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "center", 
-        height: "60vh" 
-      }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "60vh" }}>
         <Spin size="large" />
       </div>
     );
@@ -20,13 +15,13 @@ export default function PrivateRoute({ children }) {
 
   if (!currentUser) return <Navigate to="/" replace />;
 
-  if (!userData) return null; 
-
-  if (userData.role === "admin" && window.location.pathname !== "/admin") {
-    return <Navigate to="/admin" replace />;
-  }
-  if (userData.role === "user" && window.location.pathname !== "/dashboard") {
-    return <Navigate to="/dashboard" replace />;
+  // ✅ If user is logged in but userData not ready yet, show spinner instead of blocking
+  if (!userData) {
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "60vh" }}>
+        <Spin size="large" tip="Loading user data..." />
+      </div>
+    );
   }
 
   return children;

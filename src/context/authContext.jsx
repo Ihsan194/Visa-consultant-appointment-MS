@@ -14,12 +14,20 @@ export function AuthProvider({ children }) {
 
   const signup = async (email, password, fullName) => {
     const res = await createUserWithEmailAndPassword(auth, email, password);
-    await setDoc(doc(db, "users", res.user.uid), {
+
+    const newUserData = {
       uid: res.user.uid,
       email,
       fullName,
-      role: "user"
-    });
+      role: "user",
+    };
+
+    // Write to Firestore
+    await setDoc(doc(db, "users", res.user.uid), newUserData);
+
+    // ✅ Immediately set userData so it doesn’t wait for Firestore snapshot
+    setUserData(newUserData);
+
     return res;
   };
 
@@ -39,14 +47,18 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       if (unsubDoc) {
-        try { unsubDoc(); } catch { }
+        try {
+          unsubDoc();
+        } catch {}
         unsubDoc = undefined;
       }
       if (user) {
         unsubDoc = onSnapshot(
           doc(db, "users", user.uid),
           (docSnap) => {
-            setUserData(docSnap.exists() ? docSnap.data() : null);
+            if (docSnap.exists()) {
+              setUserData(docSnap.data());
+            }
             setLoading(false);
           },
           (err) => {

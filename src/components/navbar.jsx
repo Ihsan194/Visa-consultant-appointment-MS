@@ -40,14 +40,18 @@ export default function Navbar() {
         ) : userData?.role === "admin" ? (
           <>
             <Link to="/admin">Dashboard</Link>
-            <button onClick={logout} className="logout-btn">Logout</button>
+            <button onClick={logout} className="logout-btn">
+              Logout
+            </button>
           </>
         ) : (
           <>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/appointments/new">Add Appointment</Link>
-            <button onClick={logout} className="logout-btn">Logout</button>
+            <button onClick={logout} className="logout-btn">
+              Logout
+            </button>
           </>
         )}
       </div>

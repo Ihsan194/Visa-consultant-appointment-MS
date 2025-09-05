@@ -10,11 +10,12 @@ import {
   Form,
   Select,
   DatePicker,
-  message,
+  Modal,
 } from "antd";
 import Navbar from "../components/navbar";
 import dayjs from "dayjs";
-import "../assets/theme.css"
+import { useNavigate } from "react-router-dom";
+import "../assets/theme.css";
 
 const { Option } = Select;
 
@@ -22,6 +23,7 @@ export default function AddAppointment() {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
     if (!currentUser) return;
@@ -40,11 +42,13 @@ export default function AddAppointment() {
         status: "pending",
       });
 
-      message.success("Appointment added successfully");
       form.resetFields();
     } catch (err) {
       console.error(err);
-      message.error("Failed to add appointment");
+      Modal.error({
+        title: "Failed to Add Appointment",
+        content: "Something went wrong. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
@@ -130,6 +134,11 @@ export default function AddAppointment() {
                 htmlType="submit"
                 loading={loading}
                 className="px-10 py-2"
+                onClick={() =>
+                {
+                  alert("Appointment requested successfully!")
+                  navigate("/dashboard")}
+                }
               >
                 Request Appointment
               </Button>
