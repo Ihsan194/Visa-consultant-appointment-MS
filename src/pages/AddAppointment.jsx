@@ -43,6 +43,8 @@ export default function AddAppointment() {
       });
 
       form.resetFields();
+      alert("Appointment request submitted successfully!");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       Modal.error({
@@ -134,11 +136,6 @@ export default function AddAppointment() {
                 htmlType="submit"
                 loading={loading}
                 className="px-10 py-2"
-                onClick={() =>
-                {
-                  alert("Appointment requested successfully!")
-                  navigate("/dashboard")}
-                }
               >
                 Request Appointment
               </Button>
