@@ -63,23 +63,23 @@ export default function AddAppointment() {
         <Card
           title={<span className="text-white text-lg">Add Appointment</span>}
           className="shadow-xl rounded-2xl w-full max-w-3xl bg-gray-800"
-          headStyle={{ borderBottom: "1px solid #374151", background: "#1f2937" }}
-          bodyStyle={{ background: "#1f2937", padding: "2rem" }}
+          headStyle={{ borderBottom: "1px solid #374151", background: "#484866ff" }}
+          bodyStyle={{ background: "#68687b", padding: "2rem" }}
         >
           <Form layout="vertical" form={form} onFinish={handleSubmit}>
             <Form.Item
-              label={<span className="text-gray-300">Full Name</span>}
+              label={<span className="text-white-300">Full Name</span>}
               name="fullName"
               rules={[{ required: true, message: "Please enter your full name" }]}
             >
               <Input
                 placeholder="Enter your full name"
-                className="bg-gray-700 text-white border border-gray-600 rounded-md"
+                className="bg-gray-700 text-gray border border-gray-600 rounded-md"
               />
             </Form.Item>
 
             <Form.Item
-              label={<span className="text-gray-300">Email</span>}
+              label={<span className="text-white-300">Email</span>}
               name="email"
               rules={[
                 { required: true, message: "Please enter your email" },
@@ -88,19 +88,19 @@ export default function AddAppointment() {
             >
               <Input
                 placeholder="Enter your email"
-                className="bg-gray-700 text-white border border-gray-600 rounded-md"
+                className="bg-gray-700 text-gray border border-gray-600 rounded-md"
               />
             </Form.Item>
 
             <Form.Item
-              label={<span className="text-gray-300">Visa Type</span>}
+              label={<span className="text-white-300">Visa Type</span>}
               name="visaType"
               rules={[{ required: true, message: "Please select visa type" }]}
             >
               <Select
                 placeholder="Select visa type"
-                className="bg-gray-700 text-white rounded-md"
-                dropdownStyle={{ background: "#1f2937", color: "#fff" }}
+                className="bg-gray-700 text-white-300 rounded-md"
+                dropdownStyle={{ background: "#68687b", color: "#fff" }}
               >
                 <Option value="student">Student Visa</Option>
                 <Option value="work">Work Visa</Option>
@@ -109,18 +109,18 @@ export default function AddAppointment() {
             </Form.Item>
 
             <Form.Item
-              label={<span className="text-gray-300">Appointment Date</span>}
+              label={<span className="text-white-300">Appointment Date</span>}
               name="appointmentDate"
               rules={[{ required: true, message: "Please select date" }]}
             >
               <DatePicker
                 className="w-full bg-gray-700 text-white border border-gray-600 rounded-md"
-                popupStyle={{ background: "#1f2937", color: "#fff" }}
+                popupStyle={{ background: "#68687b", color: "#fff" }}
               />
             </Form.Item>
 
             <Form.Item
-              label={<span className="text-gray-300">Details</span>}
+              label={<span className="text-white-300">Details</span>}
               name="details"
             >
               <Input.TextArea

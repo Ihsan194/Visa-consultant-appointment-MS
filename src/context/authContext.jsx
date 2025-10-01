@@ -22,10 +22,8 @@ export function AuthProvider({ children }) {
       role: "user",
     };
 
-    // Write to Firestore
     await setDoc(doc(db, "users", res.user.uid), newUserData);
 
-    // ✅ Immediately set userData so it doesn’t wait for Firestore snapshot
     setUserData(newUserData);
 
     return res;
